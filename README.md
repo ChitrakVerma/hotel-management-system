@@ -96,6 +96,8 @@ The project follows an Agile development model with iterative releases tracked t
 
 ## 📁 Repository Structure
 
+The repository is organised around **5 explicit Configuration Items (CIs)** as required by ISWE403L:
+
 ```
 hotel-management-system/
 ├── .github/
@@ -104,20 +106,44 @@ hotel-management-system/
 │   │   └── feature_request.md
 │   └── workflows/
 │       └── ci.yml
-├── docs/
+│
+├── src/                    ← CI #1: Source Code
+│   ├── backend/
+│   │   ├── booking/
+│   │   ├── billing/
+│   │   └── inventory/
+│   └── frontend/
+│
+├── database/               ← CI #2: Database Schema
+│   └── schema.sql
+│
+├── docs/                   ← CI #3: Documentation
 │   ├── SCMP.md
 │   └── PROJECT_PLAN.md
-├── src/
-│   ├── backend/
-│   ├── frontend/
-│   └── database/
-│       └── schema.sql
-├── tests/
+│
+├── tests/                  ← CI #4: Test Cases
+│   └── test_booking.py
+│
+├── scripts/                ← CI #5: Build Scripts
+│   ├── build.sh
+│   ├── deploy.sh
+│   └── setup.sh
+│
 ├── .gitignore
 ├── CONTRIBUTING.md
 ├── VERSION.md
 └── README.md
 ```
+
+### Configuration Items
+
+| CI # | Name | Location | Description |
+|------|------|----------|-------------|
+| **CI #1** | Source Code | `src/` | Backend (booking, billing, inventory) and frontend application code |
+| **CI #2** | Database Schema | `database/` | SQL schema definitions, table relationships, and seed data |
+| **CI #3** | Documentation | `docs/` | SCMP, project plan, and all project documentation |
+| **CI #4** | Test Cases | `tests/` | Automated unit and integration tests |
+| **CI #5** | Build Scripts | `scripts/` | Environment setup, build, and deployment automation scripts |
 
 ---
 
@@ -135,7 +161,12 @@ cd hotel-management-system
 ```
 
 ### Development Setup
-Refer to [CONTRIBUTING.md](CONTRIBUTING.md) for setup instructions and development guidelines.
+```bash
+./scripts/setup.sh    # install dependencies and initialise the database
+./scripts/build.sh    # compile and package the application
+```
+
+Refer to [CONTRIBUTING.md](CONTRIBUTING.md) for full contribution guidelines.
 
 ---
 
