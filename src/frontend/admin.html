@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Horizon Hotel | Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Grand Horizon</a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="booking.html">Book Now</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="page-title">Admin Dashboard</h2>
+        
+        <div class="stats-grid">
+            <div class="stat-box">
+                <p>Total Bookings</p>
+                <h3>142</h3>
+            </div>
+            <div class="stat-box">
+                <p>Confirmed</p>
+                <h3 style="color: #155724;">128</h3>
+            </div>
+            <div class="stat-box">
+                <p>Pending</p>
+                <h3 style="color: #856404;">14</h3>
+            </div>
+        </div>
+
+        <div class="admin-controls">
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search by Guest Name...">
+        </div>
+
+        <table id="bookingsTable">
+            <thead>
+                <tr>
+                    <th>Ref No</th>
+                    <th>Guest Name</th>
+                    <th>Room Type</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GH-8492</td>
+                    <td>John Doe</td>
+                    <td>Deluxe</td>
+                    <td>2026-04-10</td>
+                    <td>2026-04-15</td>
+                    <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                </tr>
+                <tr>
+                    <td>GH-1029</td>
+                    <td>Sarah Smith</td>
+                    <td>Suite</td>
+                    <td>2026-04-12</td>
+                    <td>2026-04-14</td>
+                    <td><span class="status-badge status-confirmed">Confirmed</span></td>
+                </tr>
+                <tr>
+                    <td>GH-5531</td>
+                    <td>Michael Johnson</td>
+                    <td>Standard</td>
+                    <td>2026-04-18</td>
+                    <td>2026-04-20</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>GH-9982</td>
+                    <td>Emily Davis</td>
+                    <td>Deluxe</td>
+                    <td>2026-05-01</td>
+                    <td>2026-05-05</td>
+                    <td><span class="status-badge status-pending">Pending</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Grand Horizon Hotel. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Real-time search filter for the admin table
+        document.getElementById('searchInput').addEventListener('keyup', function(e) {
+            const filterText = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#bookingsTable tbody tr');
+
+            rows.forEach(row => {
+                // Get the text content of the Guest Name column (index 1)
+                const guestName = row.cells[1].textContent.toLowerCase();
+                
+                if (guestName.includes(filterText)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
