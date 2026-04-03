@@ -1,5 +1,5 @@
 -- Hotel Management System – Database Schema
--- File: src/database/schema.sql
+-- File: database/schema.sql
 -- Description: Initial table definitions for the Hotel Management System
 -- Version: 0.1.0
 

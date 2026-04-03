@@ -119,7 +119,15 @@ Examples:
 
 ## 3. Configuration Items
 
-A **Configuration Item (CI)** is any project artefact that is placed under version control and formally managed. The following CIs are defined for the Hotel Management System:
+A **Configuration Item (CI)** is any project artefact that is placed under version control and formally managed. The following **5 CIs** are defined for the Hotel Management System:
+
+| CI # | Name | Location |
+|------|------|----------|
+| CI #1 | Source Code | `src/` |
+| CI #2 | Database Schema | `database/` |
+| CI #3 | Documentation | `docs/` |
+| CI #4 | Test Cases | `tests/` |
+| CI #5 | Build Scripts | `scripts/` |
 
 ### 3.1 Source Code
 
@@ -138,12 +146,12 @@ A **Configuration Item (CI)** is any project artefact that is placed under versi
 
 | Item | Location | Description |
 |------|----------|-------------|
-| Schema definition | `src/database/schema.sql` | Table definitions, relationships, constraints |
-| Migration scripts | `src/database/migrations/` | Incremental database change scripts |
-| Seed data | `src/database/seeds/` | Initial/test data population scripts |
+| Schema definition | `database/schema.sql` | Table definitions, relationships, constraints |
+| Migration scripts | `database/migrations/` | Incremental database change scripts |
+| Seed data | `database/seeds/` | Initial/test data population scripts |
 
 **Management:**
-- Schema changes are version-controlled alongside application code.
+- Schema is maintained as a separate root-level CI (`database/`), independent of source code.
 - Database migrations use sequential numbering to ensure ordered execution.
 - Schema changes require a corresponding PR describing the impact.
 
@@ -174,16 +182,20 @@ A **Configuration Item (CI)** is any project artefact that is placed under versi
 - New features must include corresponding tests.
 - Tests automatically executed by CI pipeline on every push and PR.
 
-### 3.5 Build Scripts and CI/CD Configuration
+### 3.5 Build Scripts
 
 | Item | Location | Description |
 |------|----------|-------------|
+| Environment setup | `scripts/setup.sh` | Installs dependencies and initialises the local dev environment |
+| Build script | `scripts/build.sh` | Compiles and packages the application for deployment |
+| Deployment script | `scripts/deploy.sh` | Deploys the built application to the target environment |
 | CI pipeline | `.github/workflows/ci.yml` | Automated test and build configuration |
-| Dependency manifest | `requirements.txt` / `package.json` | Project dependencies and versions |
+| Dependency manifest | `src/backend/requirements.txt` / `src/frontend/package.json` | Project dependencies and versions |
 | Git ignore rules | `.gitignore` | Files excluded from version control |
 | Issue templates | `.github/ISSUE_TEMPLATE/` | Standardised bug and feature templates |
 
 **Management:**
+- All scripts in `scripts/` are executable shell scripts under version control.
 - CI/CD configuration is version-controlled and changes reviewed via PR.
 - Dependency versions pinned to ensure reproducible builds.
 
@@ -200,9 +212,11 @@ The repository is hosted at [github.com/ChitrakVerma/hotel-management-system](ht
 ```
 hotel-management-system/
 ├── .github/               ← GitHub configuration (CI, templates)
-├── docs/                  ← Project documentation
-├── src/                   ← Application source code
-├── tests/                 ← Test cases
+├── src/                   ← CI #1: Source Code (backend, frontend)
+├── database/              ← CI #2: Database Schema
+├── docs/                  ← CI #3: Documentation
+├── tests/                 ← CI #4: Test Cases
+├── scripts/               ← CI #5: Build Scripts
 ├── .gitignore             ← Version control exclusions
 ├── CONTRIBUTING.md        ← Developer guidelines
 ├── README.md              ← Project overview
