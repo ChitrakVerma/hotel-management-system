@@ -2,8 +2,11 @@ SET SERVEROUTPUT ON;
 SET LINESIZE 200;
 SET PAGESIZE 100;
 
+<<<<<<< HEAD
 --ckv 
 
+=======
+>>>>>>> 7cf6180940e6201ad224c1f1de8cd9d6c7f58869
 PROMPT '--- [Initializing Script: Dropping Old Tables to prevent errors] ---';
 -- Drop existing tables to ensure a clean run (ignore errors if they don't exist yet)
 BEGIN
@@ -207,4 +210,8 @@ JOIN Room r ON b.room_id = r.room_id
 JOIN Payment p ON b.booking_id = p.booking_id;
 
 PROMPT '-- Selecting from the newly created View --';
+<<<<<<< HEAD
 SELECT * FROM Guest_Receipt_View;
+=======
+SELECT * FROM Guest_Receipt_View;
+>>>>>>> 7cf6180940e6201ad224c1f1de8cd9d6c7f58869
