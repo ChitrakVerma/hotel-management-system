@@ -1,10 +1,10 @@
 <<<<<<< HEAD
 "# Hotel Management System" 
 =======
-# 🏨 Hotel Management System
+# 🏨 Hotel Management  System
 
 > Implementation of Software Configuration Management (SCM) concepts using Git and GitHub  
-> **Course:** ISWE403L – Software Configuration Management
+> **Course:** ISWE403L  – Software Configuration Management
 
 ---
 
