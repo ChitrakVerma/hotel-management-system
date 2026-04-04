@@ -13,7 +13,7 @@
 | Name | GitHub Username | Role |
 |------|----------------|------|
 | Chitrak Verma | [@ChitrakVerma](https://github.com/ChitrakVerma) | Project Lead / Developer |
-| Sankalp Singh Solanki | | Dev |
+| Sankalp Singh Solanki | [@sankalpsolankii](https://github.com/sankalpsolankii) | Dev |
 
 ---
 
