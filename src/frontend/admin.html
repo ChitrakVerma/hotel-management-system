@@ -97,21 +97,44 @@
     </footer>
 
     <script>
-        // Real-time search filter for the admin table
-        document.getElementById('searchInput').addEventListener('keyup', function(e) {
-            const filterText = e.target.value.toLowerCase();
-            const rows = document.querySelectorAll('#bookingsTable tbody tr');
+        // This function runs automatically as soon as the Admin page opens
+        window.addEventListener('DOMContentLoaded', async () => {
+            const tableBody = document.getElementById('adminTableBody');
+            
+            try {
+                // 1. Ask the server for the data (GET request)
+                const response = await fetch('http://localhost:3000/api/admin/bookings');
+                const result = await response.json();
 
-            rows.forEach(row => {
-                // Get the text content of the Guest Name column (index 1)
-                const guestName = row.cells[1].textContent.toLowerCase();
-                
-                if (guestName.includes(filterText)) {
-                    row.style.display = '';
+                if (result.success) {
+                    // 2. Clear out the old, hardcoded HTML rows
+                    tableBody.innerHTML = '';
+
+                    // 3. Loop through the real database rows and build the table
+                    result.data.forEach(booking => {
+                        // Formatting Oracle's dates to be readable
+                        const checkInDate = new Date(booking.CHECK_IN).toLocaleDateString();
+                        const checkOutDate = new Date(booking.CHECK_OUT).toLocaleDateString();
+
+                        const row = `
+                            <tr>
+                                <td>${booking.BOOKING_ID}</td>
+                                <td>${booking.FULL_NAME}</td>
+                                <td>${booking.ROOM_TYPE}</td>
+                                <td>${checkInDate}</td>
+                                <td>${checkOutDate}</td>
+                                <td>$${booking.TOTAL_PAID}</td>
+                            </tr>
+                        `;
+                        tableBody.innerHTML += row;
+                    });
                 } else {
-                    row.style.display = 'none';
+                    tableBody.innerHTML = '<tr><td colspan="6">Failed to load data from database.</td></tr>';
                 }
-            });
+            } catch (error) {
+                console.error("API Error:", error);
+                tableBody.innerHTML = '<tr><td colspan="6">Server is offline.</td></tr>';
+            }
         });
     </script>
 </body>

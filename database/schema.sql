@@ -1,12 +1,8 @@
 SET SERVEROUTPUT ON;
 SET LINESIZE 200;
 SET PAGESIZE 100;
+SET DEFINE OFF;
 
-<<<<<<< HEAD
---ckv 
-
-=======
->>>>>>> 7cf6180940e6201ad224c1f1de8cd9d6c7f58869
 PROMPT '--- [Initializing Script: Dropping Old Tables to prevent errors] ---';
 -- Drop existing tables to ensure a clean run (ignore errors if they don't exist yet)
 BEGIN
@@ -180,10 +176,10 @@ HAVING SUM(p.amount) > 10000;
 PROMPT '-- SUBQUERY: Finding the Guest who made the highest single payment --';
 SELECT full_name 
 FROM Guest 
-WHERE guest_id = (
+WHERE guest_id IN (
     SELECT guest_id 
     FROM Booking 
-    WHERE booking_id = (
+    WHERE booking_id IN (
         SELECT booking_id 
         FROM Payment 
         WHERE amount = (SELECT MAX(amount) FROM Payment)
@@ -210,8 +206,4 @@ JOIN Room r ON b.room_id = r.room_id
 JOIN Payment p ON b.booking_id = p.booking_id;
 
 PROMPT '-- Selecting from the newly created View --';
-<<<<<<< HEAD
 SELECT * FROM Guest_Receipt_View;
-=======
-SELECT * FROM Guest_Receipt_View;
->>>>>>> 7cf6180940e6201ad224c1f1de8cd9d6c7f58869
