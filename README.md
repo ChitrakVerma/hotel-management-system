@@ -1,10 +1,11 @@
 <<<<<<< HEAD
 "# Hotel Management System" 
 =======
-# 🏨 Hotel Management  System
+
+# 🏨 Hotel Management System
 
 > Implementation of Software Configuration Management (SCM) concepts using Git and GitHub  
-> **Course:** ISWE403L  – Software Configuration Management
+> **Course:** ISWE403L – Software Configuration Management
 
 ---
 
@@ -19,9 +20,8 @@
 
 ## 📖 Introduction
 
-The **Hotel Management System** is a software application designed to streamline and automate the day-to-day operations of a hotel. It provides an integrated platform for managing rooms, bookings, guests, staff, and billing — replacing manual processes with an efficient, reliable digital solution.
-
-This project also serves as a practical demonstration of **Software Configuration Management (SCM)** principles, using Git and GitHub to manage the software development lifecycle from planning through release.
+The **Hotel Management System** is a software application designed to streamline and automate the day-to-day operations of a hotel. It provides an integrated platform for managing rooms, bookings, guests, staff, and billing, replacing manual processes with an efficient and reliable digital solution.
+This project also serves as a practical demonstration of Software Configuration Management (SCM) principles, leveraging Git and GitHub to manage the software development lifecycle from planning through release.
 
 ---
 
@@ -54,14 +54,11 @@ These issues lead to poor guest experiences, revenue loss, and high administrati
 ## 📋 Project Description
 
 The Hotel Management System is a full-stack web application comprising:
-
-- **Backend:** RESTful API server handling business logic and data management.
-- **Frontend:** Intuitive web interface for hotel staff and administrators.
-- **Database:** Relational database storing all operational data.
-
-The system is built following a modular architecture to allow independent development and testing of each subsystem. All source code, database schemas, documentation, and configuration are managed under version control using Git and GitHub.
-
-The project follows an Agile development model with iterative releases tracked through GitHub milestones, issues, and pull requests — directly demonstrating SCM concepts required for ISWE403L.
+- Backend: A RESTful API server responsible for handling business logic and data management
+- Frontend: An intuitive web interface designed for hotel staff and administrators
+- Database: A relational database used to store all operational data
+- The system is built using a modular architecture, enabling independent development, testing, and maintenance of each subsystem. All source code, database schemas, documentation, and configuration files are managed under version control using Git and GitHub.
+- The project follows an Agile development methodology, with iterative releases tracked through milestones, issues, and pull requests on GitHub—effectively demonstrating the Software Configuration Management (SCM) concepts required for ISWE403L.
 
 ---
 
@@ -85,10 +82,10 @@ The project follows an Agile development model with iterative releases tracked t
 - Store identification and KYC records securely.
 
 ### 💰 Billing System
-- Automatically generate itemised invoices upon checkout.
-- Support multiple payment methods (cash, card, online).
-- Track outstanding payments and generate financial reports.
-- Apply discounts, taxes, and surcharges accurately.
+- Automatically generate detailed, itemised invoices during checkout
+- Support diverse payment methods such as cash, card, and online transactions
+- Monitor pending payments and generate comprehensive financial reports
+- Ensure accurate calculation of discounts, taxes, and additional charges
 
 ### 👨‍💼 Staff Management
 - Manage employee profiles, roles, and departments.
@@ -154,9 +151,9 @@ hotel-management-system/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Python 3.8+ or Node.js 18+
-- Git
-- A relational database (PostgreSQL or MySQL)
+- Python ≥ 3.8 or Node.js ≥ 18 for application development
+- Git for source code management and version control
+- PostgreSQL or MySQL as the relational database system
 
 ### Clone the Repository
 ```bash
@@ -201,7 +198,7 @@ See [docs/SCMP.md](docs/SCMP.md) for the full Software Configuration Management 
 
 ## 📜 License
 
-This project is developed for academic purposes as part of ISWE403L at VIT.
+This project was developed as part of the ISWE403L – Software Configuration Management course at VIT, for academic learning and practical implementation.
 
 ---
 
