@@ -1,3 +1,6 @@
+<!-- Booking Module - Feature Branch -->
+<!-- Added form validation and booking confirmation -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,25 +88,43 @@
         <p>&copy; 2026 Grand Horizon Hotel. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+<script>
+        document.getElementById('bookingForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Basic date validation
-            const checkin = new Date(document.getElementById('checkin').value);
-            const checkout = new Date(document.getElementById('checkout').value);
-            
-            if (checkout <= checkin) {
-                alert("Check-out date must be after Check-in date.");
-                return;
-            }
+            // 1. Gather data from the form
+            // Note: room_id relies on the dropdown index for now (1=Standard, 2=Deluxe, 3=Suite)
+            const bookingData = {
+                guest_id: 1, // Hardcoded to Guest #1 (John Doe) from our SQL script for now
+                room_id: document.getElementById('roomType').selectedIndex, 
+                check_in: document.getElementById('checkin').value,
+                check_out: document.getElementById('checkout').value,
+                requests: document.getElementById('requests').value
+            };
 
-            // Generate random reference
-            const randomNum = Math.floor(1000 + Math.random() * 9000);
-            const refID = `GH-${randomNum}`;
-            
-            alert(`Booking Confirmed! Reference: ${refID}\nThank you for choosing Grand Horizon Hotel.`);
-            this.reset();
+            try {
+                // 2. Send the data to your Node.js API
+                const response = await fetch('http://localhost:3000/api/bookings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(bookingData)
+                });
+
+                const result = await response.json();
+
+                // 3. Handle the server's response
+                if (result.success) {
+                    alert(`${result.message} Reference: ${result.referenceId}\nThank you for your reservation!`);
+                    this.reset(); // Clears the form
+                } else {
+                    alert("Sorry, there was an error processing your booking.");
+                }
+            } catch (error) {
+                console.error("Error connecting to API:", error);
+                alert("Could not connect to the server. Please ensure your Node.js API is running.");
+            }
         });
     </script>
 </body>

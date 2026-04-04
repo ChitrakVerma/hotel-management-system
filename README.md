@@ -1,15 +1,11 @@
-<<<<<<< HEAD
 "# Hotel Management System" 
-=======
 
-# 🏨 Hotel Management System
-
-> Implementation of Software Configuration Management (SCM) concepts using Git and GitHub  
+> Implementation of Software Configuration Management (SCM) concepts using Git and GitHub
 > **Course:** ISWE403L – Software Configuration Management
 
 ---
 
-## 👥 Team Members
+## Team Members
 
 | Name | GitHub Username | Role |
 |------|----------------|------|
@@ -18,7 +14,7 @@
 
 ---
 
-## 📖 Introduction
+## Project Description
 
 The **Hotel Management System** is a software application designed to streamline and automate the day-to-day operations of a hotel. It provides an integrated platform for managing rooms, bookings, guests, staff, and billing, replacing manual processes with an efficient and reliable digital solution.
 This project also serves as a practical demonstration of Software Configuration Management (SCM) principles, leveraging Git and GitHub to manage the software development lifecycle from planning through release.
@@ -95,44 +91,19 @@ The Hotel Management System is a full-stack web application comprising:
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
-The repository is organised around **5 explicit Configuration Items (CIs)** as required by ISWE403L:
-
-```
 hotel-management-system/
-├── .github/
-│   ├── ISSUE_TEMPLATE/
-│   │   ├── bug_report.md
-│   │   └── feature_request.md
-│   └── workflows/
-│       └── ci.yml
-│
 ├── src/                    ← CI #1: Source Code
-│   ├── backend/
-│   │   ├── booking/
-│   │   ├── billing/
-│   │   └── inventory/
 │   └── frontend/
-│
 ├── database/               ← CI #2: Database Schema
 │   └── schema.sql
-│
 ├── docs/                   ← CI #3: Documentation
-│   ├── SCMP.md
-│   └── PROJECT_PLAN.md
-│
 ├── tests/                  ← CI #4: Test Cases
-│   └── test_booking.py
-│
 ├── scripts/                ← CI #5: Build Scripts
-│   ├── build.sh
-│   ├── deploy.sh
-│   └── setup.sh
-│
-├── .gitignore
-├── CONTRIBUTING.md
-├── VERSION.md
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 └── README.md
 ```
 
@@ -196,11 +167,10 @@ See [docs/SCMP.md](docs/SCMP.md) for the full Software Configuration Management 
 
 ---
 
-## 📜 License
+## SCM Tools Used
 
 This project was developed as part of the ISWE403L – Software Configuration Management course at VIT, for academic learning and practical implementation.
 
 ---
 
-*Last updated: April 2026*
->>>>>>> 7cf6180940e6201ad224c1f1de8cd9d6c7f58869
+*Course: ISWE403L | VIT | 2025-26*
