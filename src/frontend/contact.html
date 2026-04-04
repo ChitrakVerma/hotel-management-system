@@ -58,10 +58,35 @@
     </footer>
 
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-            alert("Message sent successfully! Our team will get back to you shortly.");
-            this.reset();
+            
+            // We changed these 3 lines to perfectly match your HTML IDs!
+            const contactData = {
+                name: document.getElementById('contactName').value,
+                email: document.getElementById('contactEmail').value,
+                message: document.getElementById('contactMessage').value
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(contactData)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert(result.message);
+                    this.reset(); // Clears the form nicely
+                } else {
+                    alert("Error: Could not send message.");
+                }
+            } catch (error) {
+                console.error("API Error:", error);
+                alert("Server is offline.");
+            }
         });
     </script>
 </body>
