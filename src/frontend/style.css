@@ -20,12 +20,12 @@ body {
     color: var(--text-color);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 150vh;
 }
 
 /* Header & Navigation */
 header {
-    background-color: var(--navy);
+    background-color: var(--red);
     padding: 1rem 5%;
 }
 
